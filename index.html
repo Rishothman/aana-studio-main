@@ -4,59 +4,111 @@
     <meta charset="UTF-8">
     <title>aanastudio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Reset */
-* {
+   <style>* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Body Styling */
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #000000, #1a0000);
+    background: #000;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
     overflow: hidden;
+    position: relative;
+    animation: fadeIn 1.2s ease forwards;
 }
 
-/* Container */
+/* ✨ Subtle Cinematic Glow Background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(235,22,22,0.25) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(120px);
+    z-index: 0;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Main container */
 .container {
+    position: relative;
+    z-index: 2;
     text-align: center;
     width: 90%;
+}
+
+/* Brand section */
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: 0.4s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Title */
 .title {
     font-size: 3rem;
-    margin-bottom: 60px;
     color: #eb1616;
     letter-spacing: 2px;
-    animation: fadeInDown 1s ease-in-out;
+    position: relative;
 }
 
-/* Card Wrapper */
-.card-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+/* Underline Glow Effect */
+.title::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: #eb1616;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    box-shadow: 0 0 15px #eb1616;
 }
 
 /* Cards */
+.card-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .card {
     width: 260px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(235, 22, 22, 0.4);
+    height: 220px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(235,22,22,0.3);
     border-radius: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -65,87 +117,104 @@ body {
     overflow: hidden;
 }
 
-/* Card Hover Effect */
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-    border-color: #eb1616;
-    box-shadow: 0 0 25px rgba(235, 22, 22, 0.6);
-}
-
-/* Card Text */
-.card h2 {
-    font-size: 1.5rem;
-    z-index: 2;
-}
-
-/* Hover Red Glow Effect */
+/* Shine effect */
 .card::before {
     content: "";
     position: absolute;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(235,22,22,0.4) 0%, transparent 70%);
-    opacity: 0;
-    transition: 0.5s;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(25deg);
+    transition: 0.6s;
 }
 
 .card:hover::before {
-    opacity: 1;
+    top: 100%;
+    left: 100%;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #eb1616;
+    box-shadow: 0 0 25px rgba(235,22,22,0.5);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+}
+
+.card:hover .icon {
+    transform: scale(1.2);
+}
+
+.card h2 {
+    font-size: 1.4rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .title {
         font-size: 2.2rem;
-        margin-bottom: 40px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
     }
 
     .card {
         width: 100%;
         max-width: 320px;
-        height: 160px;
+        height: 180px;
     }
-
-    .card-wrapper {
-        gap: 25px;
-    }
-}
-    </style>
+}</style>
 </head>
 <body>
 
+    <!-- Animated Background -->
+    <div class="background"></div>
 
     <div class="container">
-        <h1 class="title">aanastudio</h1>
 
+        <!-- Logo + Title -->
+        <div class="brand">
+            <img src="studio/img/aana logo.png" alt="aanastudio logo" class="logo">
+            <h1 class="title">aanastudio</h1>
+        </div>
+
+        <!-- Cards -->
         <div class="card-wrapper">
+
             <div class="card" onclick="navigateTo('studio')">
+                <div class="icon">
+                    🎬
+                </div>
                 <h2>Studio</h2>
             </div>
 
             <div class="card" onclick="navigateTo('music')">
+                <div class="icon">
+                    🎵
+                </div>
                 <h2>Music</h2>
             </div>
 
             <div class="card" onclick="navigateTo('shoot')">
+                <div class="icon">
+                    📸
+                </div>
                 <h2>Wedding Shoot</h2>
             </div>
+
         </div>
     </div>
 
-<script >function navigateTo(section) {
+<script>
+function navigateTo(section) {
     if (section === 'studio') {
         window.location.href = "studio/index.html";
     } 
@@ -155,6 +224,7 @@ body {
     else if (section === 'shoot') {
         window.location.href = "shoot/index.html";
     }
-}</script>
+}
+</script>
 </body>
 </html>
