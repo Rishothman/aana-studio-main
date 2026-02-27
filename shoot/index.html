@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Shoot | aanastudio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#000;
+    color:white;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Glow */
+body::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(235,22,22,0.3), transparent 70%);
+    filter:blur(120px);
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-size:3rem;
+    color:#eb1616;
+    margin-bottom:20px;
+}
+
+p{
+    opacity:0.7;
+    margin-bottom:40px;
+}
+
+/* Camera SVG */
+.camera{
+    width:120px;
+    height:80px;
+    background:#eb1616;
+    border-radius:10px;
+    margin:0 auto;
+    position:relative;
+}
+
+.lens{
+    width:50px;
+    height:50px;
+    background:#000;
+    border-radius:50%;
+    position:absolute;
+    top:15px;
+    left:35px;
+    border:5px solid white;
+}
+
+.flash{
+    width:15px;
+    height:15px;
+    background:white;
+    position:absolute;
+    top:-10px;
+    right:10px;
+    border-radius:3px;
+    animation:flash 2s infinite;
+}
+
+@keyframes flash{
+    0%,90%,100%{opacity:0;}
+    95%{opacity:1;}
+}
+
+.back{
+    margin-top:40px;
+    display:inline-block;
+    padding:10px 25px;
+    border:1px solid #eb1616;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.back:hover{
+    background:#eb1616;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Wedding Shoot</h1>
+    <p>This page is under construction</p>
+
+    <div class="camera">
+        <div class="lens"></div>
+        <div class="flash"></div>
+    </div>
+
+    <a href="../index.html" class="back">Back to Home</a>
+</div>
+
+</body>
+</html>
