@@ -2,10 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>aanastudio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body Styling */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #000000, #1a0000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    width: 90%;
+}
+
+/* Title */
+.title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #eb1616;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Card Wrapper */
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+    width: 260px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(235, 22, 22, 0.4);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #eb1616;
+    box-shadow: 0 0 25px rgba(235, 22, 22, 0.6);
+}
+
+/* Card Text */
+.card h2 {
+    font-size: 1.5rem;
+    z-index: 2;
+}
+
+/* Hover Red Glow Effect */
+.card::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(235,22,22,0.4) 0%, transparent 70%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        height: 160px;
+    }
+
+    .card-wrapper {
+        gap: 25px;
+    }
+}
+    </style>
 </head>
 <body>
-    
+
+
+    <div class="container">
+        <h1 class="title">aanastudio</h1>
+
+        <div class="card-wrapper">
+            <div class="card" onclick="navigateTo('studio')">
+                <h2>Studio</h2>
+            </div>
+
+            <div class="card" onclick="navigateTo('music')">
+                <h2>Music</h2>
+            </div>
+
+            <div class="card" onclick="navigateTo('shoot')">
+                <h2>Wedding Shoot</h2>
+            </div>
+        </div>
+    </div>
+
+<script >function navigateTo(section) {
+    if (section === 'studio') {
+        window.location.href = "studio/index.html";
+    } 
+    else if (section === 'music') {
+        window.location.href = "music/index.html";
+    } 
+    else if (section === 'shoot') {
+        window.location.href = "shoot/index.html";
+    }
+}</script>
 </body>
 </html>
