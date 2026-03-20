@@ -418,6 +418,39 @@
     background:#d81324;
 }
 
+/* TEAM RESPONSIVE FIX */
+@media (max-width: 768px){
+
+    /* CARD SPACING */
+    .team-card{
+        margin-bottom:20px;
+    }
+
+    /* IMAGE FIX */
+    .team-card img{
+        height:280px;
+        object-fit:cover;
+    }
+
+    /* OVERLAY TEXT */
+    .team-overlay h4{
+        font-size:18px;
+    }
+
+    .team-overlay p{
+        font-size:13px;
+    }
+
+    /* SOCIAL ICONS */
+    .team-overlay .social a{
+        width:30px;
+        height:30px;
+        font-size:14px;
+        margin:0 3px;
+    }
+
+}
+
 /*** Footer ***/
 .footer .btn.btn-link {
     display: block;
